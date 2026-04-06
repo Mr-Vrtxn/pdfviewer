@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PDF Preview from Google Drive</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+    }
+    header {
+      background: #222;
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+    }
+    .container {
+      padding: 20px;
+    }
+    .pdf {
+      margin-bottom: 20px;
+    }
+    iframe {
+      width: 100%;
+      height: 500px;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>My PDF Previews</h1>
+</header>
+
+<div class="container" id="pdfContainer">
+  <!-- PDFs will load here -->
+</div>
+
+<script>
+  // 🔥 PUT YOUR 2 PDF FILE IDs HERE
+  const pdfs = [
+    "1vsHbBpF2j4hoI4-03QXrwptcQbnyJLd0",
+    "1irZrh4Ps7CEVnMLODhV4pm1nOg6z-e0U"
+  ];
+
+  const container = document.getElementById("pdfContainer");
+
+  pdfs.forEach(id => {
+    const div = document.createElement("div");
+    div.className = "pdf";
+
+    div.innerHTML = `
+      <iframe src="https://drive.google.com/file/d/${id}/preview"></iframe>
+    `;
+
+    container.appendChild(div);
+  });
+</script>
+
+</body>
+</html>
